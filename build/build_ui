@@ -1,0 +1,10 @@
+#!/bin/bash
+main=$1
+uifiles=$main/ui
+for file in $uifiles/*.ui
+do
+	pyfile=${file/.ui/.py}
+	echo "[compilator] Input file: $file"
+	echo "[compilator] Output file: $pyfile"
+	pyuic5 "$file" -o "$pyfile"
+done
